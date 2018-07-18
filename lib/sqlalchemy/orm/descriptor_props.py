@@ -352,8 +352,10 @@ class CompositeProperty(DescriptorProperty):
                 added.extend(non_deleted)
             else:
                 added.append(None)
-            if hist.deleted:
-                deleted.extend(hist.deleted)
+
+            non_added = hist.non_added()
+            if non_added:
+                deleted.extend(non_added)
             else:
                 deleted.append(None)
 
